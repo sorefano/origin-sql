@@ -59,14 +59,21 @@ SELECT count(*), Lpel_atty_code
 FROM temp_final
 GROUP BY Lpel_atty_code;
 
+
+WITH 
+
 Components AS (
     SELECT *, FROM `gc-r-prj-originmig`.`Origin_Migration_omar_raw`.`raw_fct_components`
-    WHERE Component_name like "%oild%"
 ),
 
 Solid_fuel_components AS (
     SELECT DISTINCT Property_id,
     FROM Components
-    WHERE Component_name = "Solid Fuel Boiler Present"
-), 
+    -- WHERE Component_name like "%olid%"
+    WHERE Component_name ="Solid Fuel Bolier Responsibility" --"Solid Fuel Boiler Present"
+)
 
+    SELECT * FROM Solid_fuel_components;
+    -- SELECT DISTINCT Component_name, Property_id ,Components, *
+    -- WHERE Component_name like "%olid%"
+    -- FROM Solid_fuel_components
